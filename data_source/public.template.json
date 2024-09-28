@@ -1,0 +1,33 @@
+{
+    "PublicArea":{
+        "projectStatus":[
+            {
+                "name":"Pleuston Press",
+                "status":"Pending",
+                "id":"1",
+                "date":"2021-01-01",
+                "description":"Pleuston Press is a new non-profit organization. (Demo only)"
+            },
+            {
+                "name":"Academy",
+                "status":"Suspended",
+                "id":"2",
+                "date":"2021-01-01",
+                "description":"Academy is aim to train talents. (Demo only)"
+            },
+            {
+                "name":"Sub-IMN",
+                "status":"Queued",
+                "id":"3",
+                "date":"2021-01-01",
+                "description":"Sub-IMN is a new form for IMN. (Demo only)"
+            }
+        ],
+        "pubkeys":[
+            {
+                "name":"administrator <admin@pleuston.org>",
+                "pubkey":"0x12345678901234567890"
+            }
+        ]
+    }
+}

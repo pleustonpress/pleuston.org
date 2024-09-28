@@ -1,0 +1,24 @@
+{
+    "TermsAndConditions":[
+        {
+            "name":"Terms and Conditions",
+            "description":"Includes the terms and conditions for using the website.",
+            "link":"#"
+        },
+        {
+            "name":"Privacy Policy",
+            "description":"Includes the privacy policy for the website.",
+            "link":"#"
+        },
+        {
+            "name":"Manage Cookies",
+            "description":"Learn how to manage cookies on the website.",
+            "link":"#"
+        },
+        {
+            "name":"Legal Notice",
+            "description":"Includes the legal notice for the website.",
+            "link":"#"
+        }
+    ]
+}

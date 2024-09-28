@@ -1,0 +1,115 @@
+{
+    "OverallHeaderContents":["<meta name=\"generator\" content=\"Python Jinja2\">"],
+    "IndexPageBanner":{
+        "title":"Pleuston",
+        "subtitle":"The Site is not available",
+        "introduction":"Welcome, the site will be online before 2025. The specific time must be based on the notification time, and no services will be provided temporarily",
+        "more_link":"https://pleuston.org"
+    },
+    "IndexPageFeatures":{
+        "title":"Our features",
+        "subtitle":"",
+        "features":[
+            {
+                "icon":"icon solid fa-map-marker-alt",
+                "title":"Under Development",
+                "description":"Discover the world through the eyes of a local"
+            },
+            {
+                "icon":"icon solid fa-compass",
+                "title":"Under Development",
+                "description":"Travel to any location in the world"
+            },
+            {
+                "icon":"icon solid fa-comments",
+                "title":"Under Development",
+                "description":"Share your adventures with others"
+            }
+        ],
+        "social_media":[
+            {
+                "icon":"icon solid fa-star",
+                "name": "",
+                "link": "#"
+            },
+            {
+                "icon":"icon solid fa-envelope",
+                "name": "",
+                "link": "#"
+            },
+            {
+                "icon":"icon brands fa-instagram",
+                "name": "",
+                "link":"#"
+            }
+        ]
+    },
+    "IndexPageProjects":{
+        "projects":[
+        {
+            "title":"Project 1",
+            "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
+            "description":"ava",
+            "link":"#"
+        },
+        {
+            "title":"Project 2",
+            "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
+            "description":"ava",
+            "link":"#"
+        }
+    ]},
+    "NavbarItems":[
+        {
+            "title":"Home",
+            "link":"/"
+        },
+        {
+            "title":"Community",
+            "link":"/community.html"
+        },
+        {
+            "title":"Projects",
+            "link":"/projects.html"
+        },
+        {
+            "title":"Public",
+            "link":"/public.html"
+        },        {
+            "title":"About",
+            "link":"/about.html"
+        },
+        {
+            "title":"Terms",
+            "link":"/terms.html"
+        }
+    ],
+    "NavbarContact":[
+        {
+            "title":"Contact",
+            "link":"#",
+            "icon":"icon solid fa-envelope"
+        },
+        {
+            "title":"Github",
+            "link":"#",
+            "icon":"icon brands fa-github"
+        },
+        {
+            "title":"Website",
+            "link":"#",
+            "icon":"icon solid fa-globe"
+        }
+    ],
+    "NavbarRecentPosts":[
+        {
+            "title":"Post 1",
+            "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
+            "description":"I hope the website's bill can be passed by the committee as soon as possible",
+            "link":"#"
+        }
+    ],
+    "Footer":{
+        "copyright":"2024 Pleuston. All rights reserved."
+    }
+}

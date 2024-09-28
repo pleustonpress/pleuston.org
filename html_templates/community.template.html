@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+        {% for items in OverallHeaderContents %}
+		{{items}}
+		{% endfor %}
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Pleuston</strong> by Pleuston Project</a>
+									<ul class="icons">
+										<li>
+											{% for icon in IndexPageFeatures.social_media %}
+											<a href="{{icon.link}}" class="{{icon.icon}}"><span class="label">{{icon.name}}</span></a>
+											{% endfor %}
+										</li>
+
+									</ul>
+								</header>
+
+							<!------SECTION START--------->
+                                <section>
+                                    <header class="main">
+										<h1>Comunity</h1>                                        
+									</header>
+                                    <p>Due to policy reasons, the community is currently unavailable. You can subscribe to our latest events via email, or submit messages to give us feedback and suggestions.</p>
+                                    <hr class="major" />
+                                    <h2>Subscribe to our newsletter</h2>
+                                    <form method="post" action="#">
+                                        <div class="row gtr-uniform">
+                                            <div class="col-6 col-12-xsmall">
+                                                <input type="email" name="email" id="email" placeholder="Email Address" />
+                                            </div>
+                                            <div class="col-12">
+                                                 <ul class="actions">
+                                                    <li><input type="submit" value="Subscribe" class="primary" /></li>
+                                                    <li><input type="reset" value="Reset" /></li>
+                                                 </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr class="major" />
+                                    <h2>Feedback</h2>
+                                    <form method="post" action="#">
+                                        <div class="row gtr-uniform">
+                                            <div class="col-6 col-12-xsmall">
+                                                <input type="text" name="name" id="name" placeholder="Name or GSC OpenID" />
+                                            </div>
+                                            <div class="col-6 col-12-xsmall">   
+                                                 <input type="email" name="email" id="email" placeholder="Email" />
+                                            </div>
+                                            <div class="col-12">
+                                                 <textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                 <ul class="actions">
+                                                    <li><input type="submit" value="Send Message" class="primary" /></li>
+                                                    <li><input type="reset" value="Reset" /></li>
+                                                 </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr class="major" />
+
+                                </section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+                                        {% for menu in NavbarItems %}
+										<li>
+                                            <a href="{{menu.link}}">{{menu.title}}</a>
+                                        </li>
+                                        {% endfor %}
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+                                        {% for post in NavbarRecentPosts %}
+										<article>
+											<a href="{{post.link}}" class="image"><img src="{{post.image}}" alt="" /></a>
+											<p>{{post.title}}</p>
+										</article>
+                                        {% endfor %}
+									</div>
+                                    <!--
+                                    <ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+                                    -->
+								</section>
+
+							<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>Contact us</h2>
+								</header>
+								<p>You can seek cooperation or report issues in the following ways.</p>
+								<ul class="contact">
+									{% for contact in NavbarContact %}
+									<li class="{{contact.icon}}"><a href="{{contact.link}}">{{contact.title}}</a></li>
+									{% endfor %}
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<footer id="footer">
+								<p class="copyright">&copy; {{Footer.copyright}}</p>
+							</foote
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

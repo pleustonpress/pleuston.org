@@ -31,3 +31,5 @@ for page in LIST_OF_PAGES:
     # save result
     with open(os.path.join(TARGET_FOLDER, page + ".html"), 'w', encoding='utf-8') as f:
         f.write(html_output)
+
+exit(0)

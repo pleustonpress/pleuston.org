@@ -2,6 +2,12 @@
 
 This is the source code for the Pleuston.org website.
 
+## Setup
+
+```
+pip install jinja2 && python deploy.py
+```
+
 # Credits
 
 code repo: MIT License

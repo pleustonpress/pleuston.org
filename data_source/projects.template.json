@@ -1,18 +1,18 @@
 {
     "PorjectList":[
         {
-            "title":"Project1",
+            "title":"Pleuston Academy has been approved",
             "description":"This is the first demo project",
-            "url":"#",
+            "url":"https://blog.pleuston.org/posts/academy/introduction/",
             "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
-            "tags":["tag1","tag2","tag3"]
+            "tags":["pleuston academy","documentation"]
         },
         {
-            "title":"Project2",
-            "description":"This is the second demo project",
-            "url":"#",
+            "title":"Pleuston Website Online",
+            "description":"Pleuston website is now online",
+            "url":"https://pleuston.org",
             "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
-            "tags":["tag4","tag5","tag6"]
+            "tags":["website","static"]
         }
     ]
 }

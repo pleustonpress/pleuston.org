@@ -48,15 +48,15 @@
     "IndexPageProjects":{
         "projects":[
         {
-            "title":"Project 1",
+            "title":"Academy Has Been Approved",
             "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
-            "description":"ava",
+            "description":"Pleuston has been approved by the committee, waitting for the bill queue.",
             "link":"#"
         },
         {
-            "title":"Project 2",
+            "title":"Pleuston Website Online",
             "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
-            "description":"ava",
+            "description":"Pleuston Website is now online, you can visit it at https://pleuston.org",
             "link":"#"
         }
     ]},

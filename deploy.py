@@ -2,6 +2,10 @@
 import os
 import json
 from jinja2 import Environment, FileSystemLoader
+import os
+
+class DeployError(Exception):
+    ...
 
 TEMPLATE_FOLDER = "html_templates"
 
@@ -23,13 +27,17 @@ overall_config = {}
 for page in reversed(LIST_OF_PAGES):  # descending order
     with open(os.path.join(RENDER_DATA_FOLDER, page + ".template.json"), "r", encoding="utf-8") as f:
         overall_config.update(json.load(f))
+        overall_config.update({"DeployData":os.getenv("DeployData",{})})
 
 env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
 for page in LIST_OF_PAGES:
-    template = env.get_template(f'{page}.template.html')
-    html_output = template.render(overall_config)
-    # save result
-    with open(os.path.join(TARGET_FOLDER, page + ".html"), 'w', encoding='utf-8') as f:
-        f.write(html_output)
+    try:
+        template = env.get_template(f'{page}.template.html')
+        html_output = template.render(overall_config)
+        # save result
+        with open(os.path.join(TARGET_FOLDER, page + ".html"), 'w', encoding='utf-8') as f:
+            f.write(html_output)
+    except Exception as e:
+        raise DeployError(f"Error while rendering {page}.template.html: {e}")
 
 exit(0)

@@ -1,45 +1,46 @@
 {
     "OverallHeaderContents":["<meta name=\"generator\" content=\"Python Jinja2\">"],
+    "PageLicense":"CC3.0, MIT",
     "IndexPageBanner":{
         "title":"Pleuston",
-        "subtitle":"The Site is not available",
-        "introduction":"Welcome, the site will be online before 2025. The specific time must be based on the notification time, and no services will be provided temporarily",
-        "more_link":"https://pleuston.org"
+        "subtitle":"Leading educational concepts",
+        "introduction":"Pleuston aims to cultivate a new generation of compound talents to adapt to the increasingly complex society of the times .You are welcome to consult us about any problems you encounter.",
+        "more_link":"https://blog.pleuston.org/posts/document/about-pleuston/"
     },
     "IndexPageFeatures":{
-        "title":"Our features",
+        "title":"Our Courses",
         "subtitle":"",
         "features":[
             {
                 "icon":"icon solid fa-map-marker-alt",
-                "title":"Under Development",
-                "description":"Discover the world through the eyes of a local"
+                "title":"Adaptability",
+                "description":"Adapt to new era issues and the latest social environment."
             },
             {
                 "icon":"icon solid fa-compass",
-                "title":"Under Development",
-                "description":"Travel to any location in the world"
+                "title":"Dialectical",
+                "description":"The engineering connections between problems need to be constantly analyzed and structured, and we are good at using science to solve problems."
             },
             {
                 "icon":"icon solid fa-comments",
-                "title":"Under Development",
-                "description":"Share your adventures with others"
+                "title":"Comprehensive",
+                "description":"We don't see complex problems, only incomplete social problems."
             }
         ],
         "social_media":[
             {
                 "icon":"icon solid fa-star",
-                "name": "",
+                "name": "favourites",
                 "link": "#"
             },
             {
                 "icon":"icon solid fa-envelope",
-                "name": "",
+                "name": "email",
                 "link": "#"
             },
             {
                 "icon":"icon brands fa-instagram",
-                "name": "",
+                "name": "instagram",
                 "link":"#"
             }
         ]

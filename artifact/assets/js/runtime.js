@@ -1,4 +1,4 @@
-// Task ID: qa60100
+// Task ID: qa60100 & github issue #4
 document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault();
     // trim the query and redirect to search page

@@ -41,3 +41,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// task qa60101 add cookie consent
+// in fact this site is not using cookies at all.
+window.cookieconsent.initialise({ 
+    container: document.getElementById("content"),
+    palette:{
+    popup: {background: "#fff"},
+    button: {background: "#aa0000"},
+    },
+    position: "bottom-right",
+    content: {
+        message: "This website may uses cookies to ensure you get the best experience on our website.",
+        dismiss: "Got it!",
+        link: "Learn more",
+        href: "https://blog.pleuston.org"
+    },
+    revokable:true,
+    onStatusChange: function(status) {
+        console.log(this.hasConsented() ?
+        'enable cookies' : 'disable cookies');
+        },
+    law: {
+    regionalLaw: false,
+    },
+    location: false,
+});

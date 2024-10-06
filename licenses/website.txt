@@ -1,0 +1,26 @@
+filename artifact/assets/js/breakpoints.js
+license /* breakpoints.js v1.0 | @ajlkn | MIT licensed */
+
+filename artifact/assets/js/browser.min.js
+license /* browser.js v1.0.1 | @ajlkn | MIT licensed */
+
+filename artifact/assets/js/jquery.min.js
+license /*! jQuery v3.6.0 | (c) OpenJS Foundation and other contributors | jquery.org/license */
+
+filename artifact/assets/js/main.js
+license /*
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+filename artifact/assets/sass/*
+license /*
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+filename artifact/assets/webfonts/*
+license <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+

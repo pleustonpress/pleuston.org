@@ -54,7 +54,7 @@ window.cookieconsent.initialise({
         message: "This website may uses cookies to ensure you get the best experience on our website.",
         dismiss: "Got it!",
         link: "Learn more",
-        href: "https://blog.pleuston.org"
+        href: "https://blog.pleuston.org/posts/document/cookie-policy-of-pleuston/"
     },
     revokable:true,
     onStatusChange: function(status) {

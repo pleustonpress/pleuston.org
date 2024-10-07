@@ -33,8 +33,8 @@ for page in reversed(LIST_OF_PAGES):  # descending order
                 "WebSiteCICD":{
                 "date":datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M:%S"),
                 "version":VERSION,
-                "commit":os.getenv('CF_PAGES_COMMIT_SHA')[0:7],
-                "branch":os.getenv('CF_PAGES_BRANCH'),
+                "commit":os.getenv('CF_PAGES_COMMIT_SHA',"0000000000000000")[0:7],
+                "branch":os.getenv('CF_PAGES_BRANCH',"master"),
                 "author":"Pleuston",
                 "repo":f"https://github.com/pleustonpress/pleuston.org/commit/{os.getenv('CF_PAGES_COMMIT_SHA')}"
             }
@@ -51,4 +51,24 @@ for page in LIST_OF_PAGES:
     except Exception as e:
         raise DeployError(f"Error while rendering {page}.template.html: {e}")
 
+def generate_sitemap():
+    sitemap = []
+    priority = 0.5
+    changefreq = "monthly"
+    for page in LIST_OF_PAGES:
+        sitemap.append(f"https://pleuston.org/{page}.html")
+
+    bodys = []
+    for url in sitemap:
+        bodys.append(f"<url><loc>{url}</loc><priority>{priority}</priority><changefreq>{changefreq}</changefreq></url>")
+
+    sitemap_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{"".join(bodys)}
+</urlset>"""
+    with open(os.path.join(TARGET_FOLDER, "sitemap.xml"), 'w', encoding='utf-8') as f:
+        f.write(sitemap_xml)
+
+
+generate_sitemap()
 exit(0)

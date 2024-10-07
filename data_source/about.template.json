@@ -10,6 +10,7 @@
         "version":"",
         "commit":"",
         "branch":"",
-        "author":""
+        "author":"",
+        "repo":""
     }
 }

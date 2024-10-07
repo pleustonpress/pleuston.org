@@ -35,7 +35,8 @@ for page in reversed(LIST_OF_PAGES):  # descending order
                 "version":VERSION,
                 "commit":os.getenv('CF_PAGES_COMMIT_SHA')[0:7],
                 "branch":os.getenv('CF_PAGES_BRANCH'),
-                "author":"Pleuston"
+                "author":"Pleuston",
+                "repo":f"https://github.com/pleustonpress/pleuston.org/commit/{os.getenv('CF_PAGES_COMMIT_SHA')}"
             }
         })
 

@@ -2,7 +2,6 @@
 import os
 import json
 from jinja2 import Environment, FileSystemLoader
-import os
 
 class DeployError(Exception):
     ...
@@ -40,4 +39,9 @@ for page in LIST_OF_PAGES:
     except Exception as e:
         raise DeployError(f"Error while rendering {page}.template.html: {e}")
 
+# print cloudflare envs
+print(f"CF_PAGES={os.getenv('CF_PAGES')}")
+print(f"CF_PAGES_COMMIT_SHA={os.getenv('CF_PAGES_COMMIT_SHA')}")
+print(f"CF_PAGES_BRANCH={os.getenv('CF_PAGES_BRANCH')}")
+print(f"CF_PAGES_URL={os.getenv('CF_PAGES_DOMAIN')}")
 exit(0)

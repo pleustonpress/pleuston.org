@@ -4,5 +4,12 @@
             "title":"About Us",
             "content": "Information Not Updated"
         }
-    ]
+    ],
+    "WebSiteCICD":{
+        "date":"",
+        "version":"",
+        "commit":"",
+        "branch":"",
+        "author":""
+    }
 }

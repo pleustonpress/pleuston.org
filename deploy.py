@@ -2,9 +2,11 @@
 import os
 import json
 from jinja2 import Environment, FileSystemLoader
-
+import datetime
 class DeployError(Exception):
     ...
+
+VERSION = "Versions/0.1.0/prod"
 
 TEMPLATE_FOLDER = "html_templates"
 
@@ -27,6 +29,15 @@ for page in reversed(LIST_OF_PAGES):  # descending order
     with open(os.path.join(RENDER_DATA_FOLDER, page + ".template.json"), "r", encoding="utf-8") as f:
         overall_config.update(json.load(f))
         overall_config.update({"DeployData":os.getenv("DeployData",{})})
+        overall_config.update({
+                "WebSiteCICD":{
+                "date":datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M:%S"),
+                "version":VERSION,
+                "commit":os.getenv('CF_PAGES_COMMIT_SHA')[0:7],
+                "branch":os.getenv('CF_PAGES_BRANCH'),
+                "author":"Pleuston"
+            }
+        })
 
 env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
 for page in LIST_OF_PAGES:
@@ -39,9 +50,4 @@ for page in LIST_OF_PAGES:
     except Exception as e:
         raise DeployError(f"Error while rendering {page}.template.html: {e}")
 
-# print cloudflare envs
-print(f"CF_PAGES={os.getenv('CF_PAGES')}")
-print(f"CF_PAGES_COMMIT_SHA={os.getenv('CF_PAGES_COMMIT_SHA')}")
-print(f"CF_PAGES_BRANCH={os.getenv('CF_PAGES_BRANCH')}")
-print(f"CF_PAGES_URL={os.getenv('CF_PAGES_DOMAIN')}")
 exit(0)

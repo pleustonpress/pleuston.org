@@ -3,7 +3,7 @@ import os
 import json
 from jinja2 import Environment, FileSystemLoader
 import datetime
-import requests
+# import requests
 class DeployError(Exception):
     ...
 

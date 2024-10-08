@@ -34,7 +34,7 @@ def update_analytics_config(xml: str):
         print("BAIDU ANALYTICS ID FOUND")
         r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data=xml.encode('utf-8'))
         print(r.text)
-        
+    print("Analytics config updated")
     ...
 
 

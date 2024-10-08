@@ -86,6 +86,6 @@ def generate_sitemap():
     return sitemap_xml
 
 generate_html_pages()
-generate_sitemap()
-update_analytics_config()
+xml = generate_sitemap()
+update_analytics_config(xml)
 exit(0)

@@ -87,5 +87,5 @@ def generate_sitemap():
 
 generate_html_pages()
 generate_sitemap()
-
+update_analytics_config()
 exit(0)

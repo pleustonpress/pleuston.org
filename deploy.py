@@ -3,7 +3,7 @@ import os
 import json
 from jinja2 import Environment, FileSystemLoader
 import datetime
-# import requests
+import requests
 class DeployError(Exception):
     ...
 
@@ -31,8 +31,10 @@ def update_analytics_config(xml: str):
     # BING_ANALYTICS_ID = os.getenv("BING_ANALYTICS_ID")
     BAIDU_ANALYTICS_ID = os.getenv("BAIDU_ANALYTICS_ID")
     if BAIDU_ANALYTICS_ID:
-        #requests.post()
-        ... # not verifyed yet
+        print("BAIDU ANALYTICS ID FOUND")
+        r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data=xml.encode('utf-8'))
+        print(r.text)
+        
     ...
 
 

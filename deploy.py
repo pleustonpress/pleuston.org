@@ -31,8 +31,8 @@ def update_analytics_config(xml: str):
     # BING_ANALYTICS_ID = os.getenv("BING_ANALYTICS_ID")
     BAIDU_ANALYTICS_ID = os.getenv("BAIDU_ANALYTICS_ID")
     if BAIDU_ANALYTICS_ID:
-        print("BAIDU ANALYTICS ID FOUND")
-        r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data=xml.encode('utf-8'))
+        print("BAIDU ANALYTICS ID FOUND",xml)
+        r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data=xml)
         print(r.text)
     print("Analytics config updated")
     ...

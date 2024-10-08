@@ -34,7 +34,15 @@ def update_analytics_config():
         print("BAIDU ANALYTICS ID FOUND")
         sites = [f"https://pleuston.org/{page}.html\n" for page in LIST_OF_PAGES]
         r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data="\n".join(sites))
-        print(r.text)
+        if r.status_code == 200:
+            print("Baidu Analytics config updated")
+        elif r.status_code == 400:
+            data = r.json()
+            if data.get("message") == "empty content":
+                raise DeployError("Baidu Analytics config update failed: empty content")
+            else:
+                print("Error Message: " + data.get("message")) 
+        
     print("Analytics config updated")
     ...
 

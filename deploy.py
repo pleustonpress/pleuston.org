@@ -26,13 +26,14 @@ LIST_OF_PAGES = [  # order by priority
 
 overall_config = {}
 
-def update_analytics_config(xml: str):
+def update_analytics_config():
     # GOOGLE_ANALYTICS_ID = os.getenv("GOOGLE_ANALYTICS_ID")
     # BING_ANALYTICS_ID = os.getenv("BING_ANALYTICS_ID")
     BAIDU_ANALYTICS_ID = os.getenv("BAIDU_ANALYTICS_ID")
     if BAIDU_ANALYTICS_ID:
-        print("BAIDU ANALYTICS ID FOUND",xml)
-        r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data=xml)
+        print("BAIDU ANALYTICS ID FOUND")
+        sites = [f"https://pleuston.org/{page}.html\n" for page in LIST_OF_PAGES]
+        r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data="\n".join(sites))
         print(r.text)
     print("Analytics config updated")
     ...
@@ -86,6 +87,6 @@ def generate_sitemap():
     return sitemap_xml
 
 generate_html_pages()
-xml = generate_sitemap()
-update_analytics_config(xml)
+generate_sitemap()
+update_analytics_config()
 exit(0)

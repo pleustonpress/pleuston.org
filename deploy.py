@@ -3,6 +3,7 @@ import os
 import json
 from jinja2 import Environment, FileSystemLoader
 import datetime
+import requests
 class DeployError(Exception):
     ...
 
@@ -25,31 +26,43 @@ LIST_OF_PAGES = [  # order by priority
 
 overall_config = {}
 
-for page in reversed(LIST_OF_PAGES):  # descending order
-    with open(os.path.join(RENDER_DATA_FOLDER, page + ".template.json"), "r", encoding="utf-8") as f:
-        overall_config.update(json.load(f))
-        overall_config.update({"DeployData":os.getenv("DeployData",{})})
-        overall_config.update({
-                "WebSiteCICD":{
-                "date":datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M:%S"),
-                "version":VERSION,
-                "commit":os.getenv('CF_PAGES_COMMIT_SHA',"0000000000000000")[0:7],
-                "branch":os.getenv('CF_PAGES_BRANCH',"master"),
-                "author":"Pleuston",
-                "repo":f"https://github.com/pleustonpress/pleuston.org/commit/{os.getenv('CF_PAGES_COMMIT_SHA')}"
-            }
-        })
+def update_analytics_config(xml: str):
+    # GOOGLE_ANALYTICS_ID = os.getenv("GOOGLE_ANALYTICS_ID")
+    # BING_ANALYTICS_ID = os.getenv("BING_ANALYTICS_ID")
+    BAIDU_ANALYTICS_ID = os.getenv("BAIDU_ANALYTICS_ID")
+    if BAIDU_ANALYTICS_ID:
+        #requests.post()
+        ... # not verifyed yet
+    ...
 
-env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
-for page in LIST_OF_PAGES:
-    try:
-        template = env.get_template(f'{page}.template.html')
-        html_output = template.render(overall_config)
-        # save result
-        with open(os.path.join(TARGET_FOLDER, page + ".html"), 'w', encoding='utf-8') as f:
-            f.write(html_output)
-    except Exception as e:
-        raise DeployError(f"Error while rendering {page}.template.html: {e}")
+
+def generate_html_pages():
+
+    for page in reversed(LIST_OF_PAGES):  # descending order
+        with open(os.path.join(RENDER_DATA_FOLDER, page + ".template.json"), "r", encoding="utf-8") as f:
+            overall_config.update(json.load(f))
+            overall_config.update({"DeployData":os.getenv("DeployData",{})})
+            overall_config.update({
+                    "WebSiteCICD":{
+                    "date":datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M:%S"),
+                    "version":VERSION,
+                    "commit":os.getenv('CF_PAGES_COMMIT_SHA',"0000000000000000")[0:7],
+                    "branch":os.getenv('CF_PAGES_BRANCH',"master"),
+                    "author":"Pleuston",
+                    "repo":f"https://github.com/pleustonpress/pleuston.org/commit/{os.getenv('CF_PAGES_COMMIT_SHA')}"
+                }
+            })
+
+    env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
+    for page in LIST_OF_PAGES:
+        try:
+            template = env.get_template(f'{page}.template.html')
+            html_output = template.render(overall_config)
+            # save result
+            with open(os.path.join(TARGET_FOLDER, page + ".html"), 'w', encoding='utf-8') as f:
+                f.write(html_output)
+        except Exception as e:
+            raise DeployError(f"Error while rendering {page}.template.html: {e}")
 
 def generate_sitemap():
     sitemap = []
@@ -68,7 +81,9 @@ def generate_sitemap():
 </urlset>"""
     with open(os.path.join(TARGET_FOLDER, "sitemap.xml"), 'w', encoding='utf-8') as f:
         f.write(sitemap_xml)
+    return sitemap_xml
 
-
+generate_html_pages()
 generate_sitemap()
+
 exit(0)

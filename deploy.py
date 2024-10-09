@@ -1,4 +1,9 @@
 # use the template engine Jinja2 to generate HTML pages from JSON data.
+# the script has 3 functions:
+# 1. generate_sitemap
+# 2. render html files
+# 3. generate index for analytics
+
 import os
 import json
 from jinja2 import Environment, FileSystemLoader
@@ -7,7 +12,18 @@ import requests
 class DeployError(Exception):
     ...
 
-VERSION = "Versions/0.1.0/prod"
+class SitemapError(Exception):
+    ...
+
+class AnalyticsError(Exception):
+    ...
+
+class GenerateError(Exception):
+    ...
+
+VERSION = "0.1.0prod"
+
+BASEURL = "https://pleuston.org"
 
 TEMPLATE_FOLDER = "html_templates"
 
@@ -27,13 +43,19 @@ LIST_OF_PAGES = [  # order by priority
 overall_config = {}
 
 def update_analytics_config():
+    # ===== Google Analytics =====
     # GOOGLE_ANALYTICS_ID = os.getenv("GOOGLE_ANALYTICS_ID")
+    ...
+
+    # ===== Bing Analytics =====
     # BING_ANALYTICS_ID = os.getenv("BING_ANALYTICS_ID")
+    ...
+
+    # ===== Baidu Analytics =====
     BAIDU_ANALYTICS_ID = os.getenv("BAIDU_ANALYTICS_ID")
     if BAIDU_ANALYTICS_ID:
-        print("BAIDU ANALYTICS ID FOUND")
-        sites = [f"https://pleuston.org/{page}.html\n" for page in LIST_OF_PAGES]
-        r = requests.post(url=f"http://data.zz.baidu.com/urls?site=https://pleuston.org&token={BAIDU_ANALYTICS_ID}",data="\n".join(sites))
+        sites = [f"https://{BASEURL}/{page}.html\n" for page in LIST_OF_PAGES]
+        r = requests.post(url=f"http://data.zz.baidu.com/urls?site={BASEURL}&token={BAIDU_ANALYTICS_ID}",data="\n".join(sites))
         if r.status_code == 200:
             print("Baidu Analytics config updated")
         elif r.status_code == 400:
@@ -42,10 +64,9 @@ def update_analytics_config():
                 raise DeployError("Baidu Analytics config update failed: empty content")
             else:
                 print("Error Message: " + data.get("message")) 
-        
+        else:
+            ...
     print("Analytics config updated")
-    ...
-
 
 def generate_html_pages():
 

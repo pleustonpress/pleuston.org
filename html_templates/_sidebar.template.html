@@ -1,0 +1,64 @@
+<div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+            <section id="search" class="alt">
+                <form method="post" action="#" id="search-form">
+                    <input type="text" name="query" id="query" placeholder="Search" />
+                </form>
+            </section>
+
+        <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    {% for menu in NavbarItems %}
+                    <li>
+                        <a href="{{menu.link}}">{{menu.title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+        <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Recent Posts</h2>
+                </header>
+                <div class="mini-posts">
+                    {% for post in NavbarRecentPosts %}
+                    <article>
+                        <a href="{{post.link}}" class="image"><img src="{{post.image}}" alt="" /></a>
+                        <p>{{post.title}}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+                <!--
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+                -->
+            </section>
+
+        <!-- Section -->
+
+        <section>
+            <header class="major">
+                <h2>Contact us</h2>
+            </header>
+            <p>You can seek cooperation or report issues in the following ways.</p>
+            <ul class="contact">
+                {% for contact in NavbarContact %}
+                <li class="{{contact.icon}}"><a href="{{contact.link}}">{{contact.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+
+    <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; {{Footer.copyright}}</p>
+        </footer>
+    </div>
+</div>

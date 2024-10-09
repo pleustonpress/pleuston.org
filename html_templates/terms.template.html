@@ -3,30 +3,17 @@
 <html>
 	<head>
 		<title>Pleuston Docs</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-		<link rel="stylesheet" href="assets/css/cookieconsent.min.css" />
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#ffffff">
+		{% include "_header.template.html" %}
         {% for items in OverallHeaderContents %}
 		{{items}}
 		{% endfor %}
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-
 							<!-- Header -->
 								<header id="header">
 									<a href="index.html" class="logo"><strong>Pleuston</strong> by Pleuston Project</a>
@@ -39,7 +26,6 @@
 
 									</ul>
 								</header>
-
 							<!------SECTION START--------->
                                 <section>
                                     <header class="main">
@@ -57,89 +43,9 @@
 					</div>
 
 				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#" id="search-form">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-                                        {% for menu in NavbarItems %}
-										<li>
-                                            <a href="{{menu.link}}">{{menu.title}}</a>
-                                        </li>
-                                        {% endfor %}
-									</ul>
-								</nav>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Recent Posts</h2>
-									</header>
-									<div class="mini-posts">
-                                        {% for post in NavbarRecentPosts %}
-										<article>
-											<a href="{{post.link}}" class="image"><img src="{{post.image}}" alt="" /></a>
-											<p>{{post.title}}</p>
-										</article>
-                                        {% endfor %}
-									</div>
-                                    <!--
-                                    <ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-                                    -->
-								</section>
-
-							<!-- Section -->
-							<section>
-								<header class="major">
-									<h2>Contact us</h2>
-								</header>
-								<p>You can seek cooperation or report issues in the following ways.</p>
-								<ul class="contact">
-									{% for contact in NavbarContact %}
-									<li class="{{contact.icon}}"><a href="{{contact.link}}">{{contact.title}}</a></li>
-									{% endfor %}
-								</ul>
-							</section>
-
-						<!-- Footer -->
-							<footer id="footer">
-								<p class="copyright">&copy; {{Footer.copyright}}</p>
-							</foote
-
-						</div>
-					</div>
-
+				{% include "_sidebar.template.html" %}
 			</div>
-
 		<!-- Scripts -->
-			<!-- Google tag (gtag.js) -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=G-7XX0J7M5NR"></script>
-			<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-7XX0J7M5NR');
-			</script>
-			<script src="assets/js/cookieconsent.min.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/runtime.js"></script>
+			{% include "_scripts.template.html" %}
 	</body>
 </html>

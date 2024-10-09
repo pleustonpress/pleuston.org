@@ -42,6 +42,12 @@ LIST_OF_PAGES = [  # order by priority
 
 overall_config = {}
 
+__builtins__.printf = print  # override built-in print function to add prefix
+
+def print(*args, **kwargs):
+    prompt = "[Deploy] "
+    printf(prompt, *args, **kwargs)
+
 def update_analytics_config():
     # ===== Google Analytics =====
     # GOOGLE_ANALYTICS_ID = os.getenv("GOOGLE_ANALYTICS_ID")
@@ -69,7 +75,6 @@ def update_analytics_config():
     print("Analytics config updated")
 
 def generate_html_pages():
-
     for page in reversed(LIST_OF_PAGES):  # descending order
         with open(os.path.join(RENDER_DATA_FOLDER, page + ".template.json"), "r", encoding="utf-8") as f:
             overall_config.update(json.load(f))
@@ -101,16 +106,14 @@ def generate_sitemap():
     priority = 0.5
     changefreq = "monthly"
     for page in LIST_OF_PAGES:
-        sitemap.append(f"https://pleuston.org/{page}.html")
+        print(f"Adding {page}.html to sitemap")
+        sitemap.append(f"{BASEURL}/{page}.html")
 
     bodys = []
     for url in sitemap:
         bodys.append(f"<url><loc>{url}</loc><priority>{priority}</priority><changefreq>{changefreq}</changefreq></url>")
 
-    sitemap_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{"".join(bodys)}
-</urlset>"""
+    sitemap_xml = f"""<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{"".join(bodys)}</urlset>"""
     with open(os.path.join(TARGET_FOLDER, "sitemap.xml"), 'w', encoding='utf-8') as f:
         f.write(sitemap_xml)
     return sitemap_xml

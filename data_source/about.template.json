@@ -2,7 +2,7 @@
     "AboutContent":[
         {
             "title":"About Us",
-            "content": "Information Not Updated"
+            "content": "Read more at <a href=\"blog.pleuston.org\\about\">About Us</a>"
         }
     ],
     "WebSiteCICD":{

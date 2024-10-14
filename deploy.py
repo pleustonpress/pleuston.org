@@ -37,7 +37,8 @@ LIST_OF_PAGES = [  # order by priority
     "terms",
     "community",
     "projects",
-    "public"
+    "public",
+    "404"
 ]
 
 overall_config = {}

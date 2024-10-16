@@ -129,13 +129,17 @@ def generate_sitemap():
         f.write(sitemap_xml)
     return sitemap_xml
 def pre_artifact():
-    # copy all files from ./statics to ./artifact
+    # copy all files from ./statics/* to ./artifact
     try:
         os.makedirs(os.path.join(TARGET_FOLDER, "statics"), exist_ok=True)
         for file in os.listdir("statics"):
             if os.path.isfile(os.path.join("statics", file)):
-                logger.info(f"Copying {file} to artifact")
-                os.system(f"cp statics/{file} {os.path.join(TARGET_FOLDER, 'statics')}")
+                print(f"Copying {file} to artifact")
+                # if windows, use copy instead of cp
+                if os.name == 'nt':
+                    os.system(f"copy statics\{file} {os.path.join(TARGET_FOLDER)}")
+                else:
+                    os.system(f"cp statics/{file} {os.path.join(TARGET_FOLDER)}")
     except Exception as e:
         raise DeployError(f"Error while copying static files: {e}")
 

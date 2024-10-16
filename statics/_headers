@@ -3,8 +3,10 @@
 
 
 # for /image, no cors and referer policy
-/image/*
+/images/*
   Access-Control-Allow-Origin: *
   Referrer-Policy: no-referrer
 # for /api, allow cors and set cache control
+
+
 

@@ -131,7 +131,6 @@ def generate_sitemap():
 def pre_artifact():
     # copy all files from ./statics/* to ./artifact
     try:
-        os.makedirs(os.path.join(TARGET_FOLDER, "statics"), exist_ok=True)
         for file in os.listdir("statics"):
             if os.path.isfile(os.path.join("statics", file)):
                 print(f"Copying {file} to artifact")

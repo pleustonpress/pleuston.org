@@ -128,8 +128,19 @@ def generate_sitemap():
     with open(os.path.join(TARGET_FOLDER, "sitemap.xml"), 'w', encoding='utf-8') as f:
         f.write(sitemap_xml)
     return sitemap_xml
+def pre_artifact():
+    # copy all files from ./statics to ./artifact
+    try:
+        os.makedirs(os.path.join(TARGET_FOLDER, "statics"), exist_ok=True)
+        for file in os.listdir("statics"):
+            if os.path.isfile(os.path.join("statics", file)):
+                logger.info(f"Copying {file} to artifact")
+                os.system(f"cp statics/{file} {os.path.join(TARGET_FOLDER, 'statics')}")
+    except Exception as e:
+        raise DeployError(f"Error while copying static files: {e}")
 
 logger.info("Deploying to Pleuston.org")
+pre_artifact()
 generate_html_pages()
 generate_sitemap()
 update_analytics_config()

@@ -1,0 +1,10 @@
+# This file is used to set HTTP headers for specific paths or domains.
+# The _headers file will be rendered by cloudflare workers and applied to all requests.
+
+
+# for /image, no cors and referer policy
+/image/*
+  Access-Control-Allow-Origin: *
+  Referrer-Policy: no-referrer
+# for /api, allow cors and set cache control
+

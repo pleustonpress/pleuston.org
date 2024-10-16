@@ -9,17 +9,29 @@ import json
 from jinja2 import Environment, FileSystemLoader
 import datetime
 import requests
+import logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 class DeployError(Exception):
-    ...
+    def __call__(self, *args, **kwds):
+        logger.info(f"DeployError: {self.args[0]}")
+        return super().__call__(*args, **kwds)
 
 class SitemapError(Exception):
-    ...
+    def __call__(self, *args, **kwds):
+        logger.info(f"SitemapError: {self.args[0]}")
+        return super().__call__(*args, **kwds)
 
 class AnalyticsError(Exception):
-    ...
+    def __call__(self, *args, **kwds):
+        logger.info(f"AnalyticsError: {self.args[0]}")
+        return super().__call__(*args, **kwds)
 
 class GenerateError(Exception):
-    ...
+    def __call__(self, *args, **kwds):
+        logger.info(f"GenerateError: {self.args[0]}")
+        return super().__call__(*args, **kwds)
 
 VERSION = "0.1.0prod"
 
@@ -43,11 +55,9 @@ LIST_OF_PAGES = [  # order by priority
 
 overall_config = {}
 
-__builtins__.printf = print  # override built-in print function to add prefix
-
 def print(*args, **kwargs):
     prompt = "[Deploy] "
-    printf(prompt, *args, **kwargs)
+    logger.info(prompt + " ".join(map(str, args)))
 
 def update_analytics_config():
     # ===== Google Analytics =====
@@ -119,6 +129,7 @@ def generate_sitemap():
         f.write(sitemap_xml)
     return sitemap_xml
 
+logger.info("Deploying to Pleuston.org")
 generate_html_pages()
 generate_sitemap()
 update_analytics_config()

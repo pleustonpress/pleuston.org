@@ -10,6 +10,10 @@ one can run the following commands to set up the website on cloudflare pages.
 pip install jinja2 && python deploy.py
 ```
 
+# Develop guide
+
+cloudflare docs: https://developers.cloudflare.com/pages/
+
 # Report
 
 Anyone can report bugs or raise issues via the issue or email:

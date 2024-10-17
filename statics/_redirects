@@ -1,1 +1,2 @@
 /blog/* https://blog.pleuston.org/:splat
+/blog https://blog.pleuston.org/

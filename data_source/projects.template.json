@@ -8,11 +8,11 @@
             "tags":["pleuston academy","documentation"]
         },
         {
-            "title":"Pleuston Website Online",
-            "description":"Pleuston website is now online",
-            "url":"https://pleuston.org",
+            "title":"Pleuston Software",
+            "description":"Pleuston Software Development Department is now online",
+            "url":"https://pleuston.org/software",
             "image":"https://assets.pleuston.greenshadecapital.com/embed/r_l_v_t.png",
-            "tags":["website","static"]
+            "tags":["software","development"]
         }
     ]
 }
